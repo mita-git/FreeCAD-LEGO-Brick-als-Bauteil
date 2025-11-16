@@ -1,5 +1,5 @@
 # FreeCAD LEGO® Brick als Bauteil
-
+--
 FreeCAD ist eine 3D CAD Software in der Version 1.0.2 
 basierend auf der GNU LIBRARY GENERAL PUBLIC LICENSE
 -- 
@@ -31,6 +31,6 @@ make_brick(8, 2, 9, 2, 'slope')
 --
 LEGO® 
 Die LEGO® Group ist Eigentümer der Marke LEGO® und wir respektieren deren Rechte an geistigem Eigentum.
-Das nach machen der LEGO® Seine ist untersagt.
+Das nachmachen der LEGO® Seine ist untersagt.
 https://www.lego.com/de-de/legal/notices-and-policies/fair-play
 
