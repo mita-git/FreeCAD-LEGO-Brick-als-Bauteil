@@ -28,7 +28,7 @@ Mit dem Script können Dachsteine (slope), Platen (plate) und LEGO® Steine (bri
     make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
     make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6
 
-Es können aber auch Dachsteine erstellt werden die es bei LEGO nicht giebt.
+Es können aber auch Dachsteine erstellt werden die es bei LEGO® nicht gibt.
 make_brick(8, 2, 9, 2, 'slope')
 
 ----
@@ -37,7 +37,7 @@ LEGO®
 
 Die LEGO® Group ist Eigentümer der Marke LEGO® und wir respektieren deren Rechte an geistigem Eigentum.
 
-Das nachmachen der LEGO® Seine ist untersagt.
+Das Nachmachen der LEGO® Seine ist untersagt.
 
 https://www.lego.com/de-de/legal/notices-and-policies/fair-play
 
