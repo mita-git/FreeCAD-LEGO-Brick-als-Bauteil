@@ -1,5 +1,5 @@
 # FreeCAD LEGO® Brick als Bauteil
---
+-- 
 FreeCAD ist eine 3D CAD Software in der Version 1.0.2 
 basierend auf der GNU LIBRARY GENERAL PUBLIC LICENSE
 -- 
