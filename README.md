@@ -36,9 +36,8 @@ make_brick(8, 2, 9, 2, 'slope')
 LEGO®
 
 Die LEGO® Group ist Eigentümer der Marke LEGO® und wir respektieren deren Rechte an geistigem Eigentum.
-
 Das Nachmachen der LEGO® Seine ist untersagt.
-
+LEGO® is a registered trademark of the LEGO® Group, which does not sponsor, endorse, or authorize this site. Visit the official Lego® website at 
+LEGO® ist eine eingetragene Marke der LEGO® Gruppe, die diese Website weder sponsert noch unterstützt oder autorisiert. Besuchen Sie die offizielle LEGO® Website unter
 https://www.lego.com/de-de/legal/notices-and-policies/fair-play
-
 
