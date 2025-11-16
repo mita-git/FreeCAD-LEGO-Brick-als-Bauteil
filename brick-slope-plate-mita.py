@@ -5,9 +5,12 @@ The goal is to make Lego-compatible pieces for use in 3D printer
 The script generates .stl files in a directory.
 """
 # Dimensions for studs
-stud_radius_mm		= 2.400		# Lego official is 2.400
+# stud_radius_mm		= 2.400		# Lego official is 2.400
+stud_radius_mm		= 2.475		# my radius
 stud_center_spacing_mm	= 8.000
-stud_height_mm		= 1.600		# Lego official is 1.600
+# stud_height_mm		= 1.600		# Lego official is 1.600
+stud_height_mm		= 1.700		# my height
+
 
 # Dimensions for plates
 plate_height_mm		= 3.200
@@ -436,34 +439,34 @@ def make_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick):
 # Brick Plate: make_brick(x Stups,y Stups,z Diche einer Platte, immer x - 1 => die Ringe von unten)
 
 
-make_brick(2, 2, 3, 1, 'slope') # standard slope, bottom 2x2, top half 2x1 studs and half slope
-
-make_brick(2, 2, 3, 1, 'brick') # standard brick, bottom 2x2, 
-
-make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
-
-make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
-
-make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
-
-make_brick(2, 6, 3, 1, 'brick') # standard brick, bottom 2x6, 
-
-make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6,
- 
-
-make_brick(4, 4, 3, 2, 'slope')
-  
-make_brick(3, 2, 3, 1, 'slope')
-make_brick(3, 4, 3, 1, 'slope')
-
-make_brick(2, 1, 3, 1, 'slope')
-make_brick(3, 1, 3, 1, 'slope')
-make_brick(8, 1, 9, 1, 'slope')
-make_brick(2, 2, 6, 1, 'slope')
-make_brick(2, 2, 9, 1, 'slope')
-make_brick(8, 2, 9, 1, 'slope')
-
-make_brick(2, 8, 3, 1, 'brick')
+# make_brick(2, 2, 3, 1, 'slope') # standard slope, bottom 2x2, top half 2x1 studs and half slope
+# 
+# make_brick(2, 2, 3, 1, 'brick') # standard brick, bottom 2x2, 
+# 
+# make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
+# 
+# make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
+# 
+# make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
+# 
+# make_brick(2, 6, 3, 1, 'brick') # standard brick, bottom 2x6, 
+# 
+# make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6,
+#  
+# 
+# make_brick(4, 4, 3, 2, 'slope')
+#   
+# make_brick(3, 2, 3, 1, 'slope')
+# make_brick(3, 4, 3, 1, 'slope')
+# 
+# make_brick(2, 1, 3, 1, 'slope')
+# make_brick(3, 1, 3, 1, 'slope')
+# make_brick(8, 1, 9, 1, 'slope')
+# make_brick(2, 2, 6, 1, 'slope')
+# make_brick(2, 2, 9, 1, 'slope')
+make_brick(8, 2, 9, 2, 'slope')
+# 
+# make_brick(2, 8, 3, 1, 'brick')
 
 # make_brick(x Stups,y Stups,z Diche einer Platte,wievile Stubs in x bleiben sollen)
 
