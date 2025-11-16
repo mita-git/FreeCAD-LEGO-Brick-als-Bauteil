@@ -6,14 +6,23 @@ basierend auf der GNU LIBRARY GENERAL PUBLIC LICENSE
 meine Version 16.11.2025 mit der ich das Python script entwickelt habe.
 
 > OS: Windows 11 build 26200
+
 > Architecture: x86_64
+
 > Version: 1.0.2.39319 (Git) Conda
+
 > Build type: Release
+
 > Branch: (HEAD detached at 1.0.2)
+
 > Hash: 256fc7eff3379911ab5daf88e10182c509aa8052
+
 > Python 3.11.13, Qt 5.15.15, Coin 4.0.3, Vtk 9.3.0, OCC 7.8.1
+
 > Locale: German/Germany (de_DE)
+
 > Stylesheet/Theme/QtStyle: FreeCAD Light.qss/FreeCAD Light/Fusion
+
 
 Diese Python script basiert auf dem script slope_brick.py von Paul Cobbaut, 2023-05-18
 https://github.com/paulcobbaut/FreeCAD-Brick
