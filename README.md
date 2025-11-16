@@ -23,6 +23,7 @@ FreeCAD hat einen Part Designer mit dem man 3D Teile einwickeln kann.
 Diese Script verwendet die funktionalitäten des PartDesigners.
 
 Mit dem Script können Dachsteine (slope), Platen (plate) und LEGO® Steine (brick) erzeugt werden.
+
     make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4
     make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
     make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6
