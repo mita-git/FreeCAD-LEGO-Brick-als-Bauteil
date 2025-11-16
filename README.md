@@ -1,8 +1,8 @@
 # FreeCAD LEGO® Brick als Bauteil
--- 
+--
 FreeCAD ist eine 3D CAD Software in der Version 1.0.2 
 basierend auf der GNU LIBRARY GENERAL PUBLIC LICENSE
--- 
+--
 meine Version 16.11.2025 mit der ich das Python script entwickelt habe.
 --
 OS: Windows 11 build 26200
@@ -22,9 +22,9 @@ FreeCAD hat einen Part Designer mit dem man 3D Teile einwickeln kann.
 Diese Script verwendet die funktionalitäten des PartDesigners.
 --
 Mit dem Script können Dachsteine (slope), Platen (plate) und LEGO® Steine (brick) erzeugt werden.
-make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4
-make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
-make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6
+- make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4
+- make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
+- make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6
 --
 Es können aber auch Dachsteine erstellt werden die es bei LEGO nicht giebt.
 make_brick(8, 2, 9, 2, 'slope')
