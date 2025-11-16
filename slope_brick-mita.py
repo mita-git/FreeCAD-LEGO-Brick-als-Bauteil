@@ -207,9 +207,9 @@ def add_brick_rings(brick_name):
     # Create a template ring (all rings for a single brick are the same height)
     height = z * plate_height_mm
     
-    print("vars",x,y,t,typeofbrick)
-    diff = x - t
-    for i in range(int(x - diff)):
+#    print("vars",x,y,t,typeofbrick)
+#    diff = x - t
+    for i in range(int(x - 1)):
         for j in range(int(y - 1)):
             RingName = 'ring_' + brick_name + str(i) + '_' + str(j)
             # print(RingName)
@@ -273,7 +273,6 @@ def create_slope_cutout(brick_name):
     Pad_obj.Label = PadLabel
     Pad_obj.Reversed = 1
     doc.getObject(SketchLabel).Visibility = False
-    
     return Body_obj
 
 # creates a sketch to fuse to the (to be) slope brick
@@ -321,8 +320,13 @@ def make_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick):
     
     # start as if it is a regular brick
     huelle = create_brick_hull(brick_name)
+
     
     compound_list = []
+    
+    FreeCADGui.ActiveDocument.ActiveView.viewIsometric()
+    FreeCADGui.ActiveDocument.ActiveView.fitAll()
+    
     # compound_list.append(create_brick_hull(brick_name))
     compound_list += add_brick_studs(brick_name)
     print("Diferenz x - t:",studs_x-studs_t)
@@ -353,11 +357,30 @@ def make_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick):
         # print("huelle Label Name",huelle.Label,huelle.Name)
     #    
 
+        outer_width  = convert_studs_to_mm(studs_x)
+        outer_length = convert_studs_to_mm(studs_y)
+        outer_height = 1 * plate_height_mm
+
+        TempBox = make_box(brick_name+'_boxtemp', brick_name+'_box_temp', outer_length, outer_width, outer_height)
+        TempBox.Placement = FreeCAD.Placement(Vector(outer_width,0,-outer_height),FreeCAD.Rotation(Vector(0,0,0),90.000))
+        
+        print("TempBox",TempBox.Name,TempBox.Label,TempBox.BaseFeature)
+        print("cutout_part",cutout_part.Name,cutout_part.Label,cutout_part.BaseFeature)
+               
+        make_part_Boolean(huelle.Name, TempBox.Name, brick_name+"_put_slope", 0)               
+        
         make_part_Boolean(huelle.Name, cutout_part.Name, brick_name+"_cut_slope", 1)
         
         roof_part = create_slope_roof(brick_name)
+        
         # print("roof_part",roof_part.Label,roof_part.Name)
         make_part_Boolean(huelle.Name, roof_part.Name, brick_name+"_put_roof", 0)
+
+        TempBox = make_box(brick_name+'_boxtemp_d', brick_name+'_box_temp_d', outer_length, outer_width, outer_height)
+        TempBox.Placement = FreeCAD.Placement(Vector(outer_width,0,-outer_height),FreeCAD.Rotation(Vector(0,0,0),90.000))
+        
+        make_part_Boolean(huelle.Name, TempBox.Name, brick_name+"_put_slope_d", 1) 
+        
         doc.recompute()
         # print("################################## CUT beendet")
     else:
