@@ -61,20 +61,20 @@ def anzeigen():
 # slope: make_brick(x Stups,y Stups,z Dicke einer Platte,wie viele Stubs in x bleiben sollen => die Ringe von unten)
 # Brick Plate: make_brick(x Stups,y Stups,z Dicke einer Platte, immer x - 1 => die Ringe von unten)
 
-## make_brick(1, 6, 3, 1, 'brick') # standard brick 1 x 6 
-## anzeigen()
-## make_brick(2, 2, 3, 1, 'slope') # standard slope, bottom 2x2, top half 2x1 studs and half slope
-## anzeigen()
-## make_brick(2, 2, 3, 1, 'brick') # standard brick, bottom 2x2, 
-## anzeigen()
-## make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
-## anzeigen()
-## make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
-## anzeigen()
-## make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
-## anzeigen()
-## make_brick(2, 6, 3, 1, 'brick') # standard brick, bottom 2x6, 
-## anzeigen()
+make_brick(1, 6, 3, 1, 'brick') # standard brick 1 x 6 
+anzeigen()
+make_brick(2, 2, 3, 1, 'slope') # standard slope, bottom 2x2, top half 2x1 studs and half slope
+anzeigen()
+make_brick(2, 2, 3, 1, 'brick') # standard brick, bottom 2x2, 
+anzeigen()
+make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
+anzeigen()
+make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
+anzeigen()
+make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
+anzeigen()
+make_brick(2, 6, 3, 2, 'brick') # standard brick, bottom 2x6, 
+anzeigen()
 ## make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6,
 ## anzeigen()
 ##  
@@ -97,11 +97,14 @@ def anzeigen():
 ## make_brick(2, 6, 3, 1, 'slope') # slope 3x6 45°
 ## anzeigen()
 
+make_brick(1, 6, 3, 1, 'brick') # brick 1x6 
+anzeigen()
+
 make_brick(2, 6, 3, 0, 'dslope') # dslope 3x4 45°
 anzeigen()
 
-## make_brick(3, 6, 3, 1, 'slope') # slope 3x6 33°
-## anzeigen()
+make_brick(3, 6, 3, 1, 'slope') # slope 3x6 33°
+anzeigen()
 
 make_brick(3, 6, 3, 0, 'dslope') # dslope 3x4 ??°
 anzeigen()

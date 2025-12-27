@@ -28,8 +28,12 @@ wall_thickness_mm	= 1.500		# 1.2 and 0.3 for new small beams or 1.5 for old bric
 top_thickness_mm	= 0.500		# the 'ceiling' of a brick is thinner than the sides
 
 # Dimensions underside rings
-ring_radius_outer_mm	= 3.250 	# was 3.220 on 1028, 3.226 on 20220929 (should be 3.2500)
-ring_radius_inner_mm	= 2.500		# was 2.666 pm 1029, 2.456 on 20220930, 2.556 on 20221001 (should be 2.400)
+ring_radius_outer_mm	= 3.255 	# was 3.220 on 1028, 3.226 on 20220929 (should be 3.2500) (Christoph Bartneck 6.51/2=3.255)
+ring_radius_inner_mm	= 2.400		# was 2.666 pm 1029, 2.456 on 20220930, 2.556 on 20221001 (should be 2.400) (Christoph Bartneck 4.8/2=2.4)
+
+# Dimensions underside pinn
+pin_radius_outer_mm	= 1.6	# 20251227 by mita (Christoph Bartneck Technic 3.2/2=1.6)
+pin_radius_inner_mm	= 0.5   # 20251227 by mita
 
 # Dimensions for slopes
 slope_start_height_mm   = 1.500
@@ -122,8 +126,9 @@ def make_Cylinder(name, r, h):
     
     return obj
 
-def name_a_slope_brick(studs_x, studs_y, plate_z, studs_t, plusname):
-    name = plusname+ '_' + str(studs_x) + 'x' + str(studs_y) + 'x' + str(plate_z) + '_top_' + str(studs_t)
+def make_a_name(studs_x, studs_y, plate_z, studs_t, plusname):
+    global offset
+    name = plusname+ '_' + str(studs_x) + 'x' + str(studs_y) + 'x' + str(plate_z) + '_stud_' + str(studs_t) + '_no_' + str(offset)
     bricks[name] = (studs_x, studs_y, plate_z, studs_t, plusname)
     return name
 # erzeugt einen Teil mit PartDesign::Boolean   Fuse Cut Common  Vereinigung=0 Differenz=1 Schnittmenge=2
@@ -227,6 +232,51 @@ def add_brick_rings(brick_name):
             compound_list.append(outer_cylinder)
 
     return compound_list
+
+def add_brick_pins(brick_name):
+    # Add the pins on the bottom of the brick
+    compound_list = []
+    x = bricks[brick_name][0]
+    y = bricks[brick_name][1]
+    z = bricks[brick_name][2]
+    t = bricks[brick_name][3]
+    typeofbrick = bricks[brick_name][4]
+    
+    # Create a template ring (all rings for a single brick are the same height)
+    height = z * plate_height_mm
+    
+#    print("vars",x,y,t,typeofbrick)
+#    diff = x - t
+    for j in range(int(y - 1)):
+        PinName = 'pin_' + brick_name + '_' + str(j)
+        # print(PinName)
+        outer_cylinder = make_Cylinder("outer_cylinder_"+PinName,pin_radius_outer_mm,(height - top_thickness_mm))
+        
+        # # print("Namen:",outer_cylinder.Name, inner_cylinder.Name, PinName+"Boolean")
+        
+        xpos = brick_width_mm/2
+        ypos = (brick_width_mm + gap_mm) * (j + 1) - (gap_mm/2)
+        outer_cylinder.Placement = FreeCAD.Placement(Vector(xpos, ypos, 0), FreeCAD.Rotation(0,0,0), Vector(0,0,0))
+        FreeCAD.ActiveDocument.recompute()
+
+        # print("################################## Beginn Bohrung")
+
+        Holename = outer_cylinder.Label + "_hole"
+        outer_cylinder.newObject('PartDesign::Hole',Holename)
+        
+        FreeCAD.ActiveDocument.getObject(Holename).Profile = (FreeCAD.ActiveDocument.getObject(outer_cylinder.Label), ['Face3',])
+        # FreeCAD.ActiveDocument.recompute()
+        FreeCAD.ActiveDocument.getObject(Holename).Diameter = pin_radius_inner_mm*2
+        FreeCAD.ActiveDocument.getObject(Holename).Depth = (height - top_thickness_mm)
+        # FreeCAD.ActiveDocument.recompute()
+        FreeCAD.ActiveDocument.getObject(outer_cylinder.Label).Visibility = False
+        
+        # print("################################## Ende Bohrung")
+
+        compound_list.append(outer_cylinder)
+
+    return compound_list
+
 # creates a sketch to cut from the (to be) slope brick
 def create_slope_cutout(brick_name):
     typeofslope = brick_name.split("_")[0]
@@ -342,20 +392,32 @@ def create_slope_roof(brick_name):
     
 def make_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick):
     # name the slope brick   
-    
-    brick_name = name_a_slope_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick)
-    # print("Debug los Gehts mit",brick_name)
-    
-    # start as if it is a regular brick
-    huelle = create_brick_hull(brick_name)
 
     
     compound_list = []
     
-#    FreeCADGui.ActiveDocument.ActiveView.viewIsometric()
-#    FreeCADGui.ActiveDocument.ActiveView.fitAll()
+    brick_name = make_a_name(studs_x, studs_y, plate_z, studs_t, type_of_brick)
+    # print("Debug los Gehts mit",brick_name)
+    match studs_x:
+        case 1:
+            match type_of_brick:
+                case 'slope' | 'dslope':
+                    print("studs_x = ",studs_x,"and type_of_brick = ",type_of_brick,"Nicht Möglich")
+                    return "Abbruch"
+                case _:
+                    print("Add Pins")
+                    compound_list += add_brick_pins(brick_name)
+                
+        case _:
+            print("Add Rings")
+            compound_list += add_brick_rings(brick_name)
+                
     
-    # compound_list.append(create_brick_hull(brick_name))
+    # start as if it is a regular brick
+    huelle = create_brick_hull(brick_name)
+    
+
+    
     match type_of_brick:
         case 'dslope':
             print('dslope:')
@@ -367,8 +429,6 @@ def make_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick):
         
         
         
-    print("Add Rings")
-    compound_list += add_brick_rings(brick_name)
 
     ende = len(compound_list)
     # print("LEN:",ende,compound_list)
@@ -377,7 +437,7 @@ def make_brick(studs_x, studs_y, plate_z, studs_t, type_of_brick):
         # print("Debug For",i,compound_list[i].Name,compound_list[i].Label)
         make_part_Boolean(huelle.Name, compound_list[i].Name, brick_name+"_plus"+str(i), 0)
 
-    huelle.Label = brick_name + '_brick'
+    huelle.Label = brick_name
     
     # brick is finished, so create a compound object with the name of the brick
     FreeCAD.ActiveDocument.recompute()
