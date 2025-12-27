@@ -30,6 +30,9 @@ Mit dem Script können Dachsteine (slope), Platen (plate) und LEGO® Steine (bri
 
 Es können aber auch Dachsteine erstellt werden die es bei LEGO® nicht gibt.
 make_brick(8, 2, 9, 2, 'slope')
+----
+https://github.com/vectronic/freecad-legify-macros
+Hier habe ich mir den Eingabe Dialog abgeschaut das Programm läuft bei mir auf einige Fehler. Standard Bircks klappen da super.
 
 ----
 
