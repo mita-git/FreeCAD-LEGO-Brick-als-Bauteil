@@ -1,6 +1,7 @@
 """
-slope_brick_mita.py -- Paul Cobbaut, 2023-05-18
--- Michael Talarczyk, 2025-11-02 2025-11-20 
+BrickSlopePlateODialog.py 
+-- Paul Cobbaut, 2023-05-18
+-- Michael Talarczyk, 2025-11-02 2026-01-03 auch mit spire
 The goal is to make Lego-compatible pieces for use in 3D printer
 The script generates .stl files in a directory.
 """
@@ -61,20 +62,27 @@ def anzeigen():
 # slope: make_brick(x Stups,y Stups,z Dicke einer Platte,wie viele Stubs in x bleiben sollen => die Ringe von unten)
 # Brick Plate: make_brick(x Stups,y Stups,z Dicke einer Platte, immer x - 1 => die Ringe von unten)
 
-make_brick(1, 6, 3, 1, 'brick') # standard brick 1 x 6 
-anzeigen()
-make_brick(2, 2, 3, 1, 'slope') # standard slope, bottom 2x2, top half 2x1 studs and half slope
-anzeigen()
-make_brick(2, 2, 3, 1, 'brick') # standard brick, bottom 2x2, 
-anzeigen()
-make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
-anzeigen()
-make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
-anzeigen()
-make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
-anzeigen()
-make_brick(2, 6, 3, 2, 'brick') # standard brick, bottom 2x6, 
-anzeigen()
+## make_brick(1, 6, 3, 1, 'brick') # standard brick 1 x 6 
+## anzeigen()
+## 
+## make_brick(2, 2, 3, 1, 'slope') # standard slope, bottom 2x2, top half 2x1 studs and half slope
+## anzeigen()
+## 
+## make_brick(2, 2, 3, 1, 'brick') # standard brick, bottom 2x2, 
+## anzeigen()
+## 
+## make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
+## anzeigen()
+## 
+## make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
+## anzeigen()
+## 
+## make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
+## anzeigen()
+## 
+## make_brick(2, 6, 3, 2, 'brick') # standard brick, bottom 2x6, 
+## anzeigen()
+##
 ## make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6,
 ## anzeigen()
 ##  
@@ -93,28 +101,57 @@ anzeigen()
 # 
 ## make_brick(2, 6, 1, 0, 'tile') # Fliese 3x4 33°
 ## anzeigen()
-
+## 
 ## make_brick(2, 6, 3, 1, 'slope') # slope 3x6 45°
 ## anzeigen()
+## 
+## make_brick(1, 6, 3, 1, 'brick') # brick 1x6 
+## anzeigen()
+## 
+## make_brick(2, 6, 3, 0, 'dslope') # dslope 3x4 45°
+## anzeigen()
+## 
+## make_brick(3, 6, 3, 1, 'slope') # slope 3x6 33°
+## anzeigen()
+## 
+## make_brick(3, 6, 3, 0, 'dslope') # dslope 3x4 ??°
+## anzeigen()
+## 
+## make_brick(2, 6, 2, 0, 'dslope') # dslope 3x4 33°
+## anzeigen()
+## 
+## make_brick(4, 6, 4, 0, 'dslope') # dslope 3x4 33°
+## anzeigen()
 
-make_brick(1, 6, 3, 1, 'brick') # brick 1x6 
+# make_spire(2, 2, 3, 0, 'spire') # spire 
+# anzeigen()
+# 
+# 
+# 
+# make_spire(4, 6, 3, 0, 'spire') # spire 
+# anzeigen()
+# 
+# make_spire(4, 4, 9, 0, 'spire') # spire 
+# anzeigen()
+
+make_spire(6, 4, 9, 0, 'spire') # spire 
 anzeigen()
 
-make_brick(2, 6, 3, 0, 'dslope') # dslope 3x4 45°
-anzeigen()
+## make_brick(4, 4, 9, 2, 'slope') # slope 
+## anzeigen()
+##  
+## make_brick(4, 6, 9, 0, 'dslope') # dslope 
+## anzeigen()
+## 
+## make_brick(4, 4, 9, 0, 'spire') # spire 
+## anzeigen()
+## 
+## 
+## make_brick(4, 6, 9, 0, 'spire') # spire 
+## anzeigen()
 
-make_brick(3, 6, 3, 1, 'slope') # slope 3x6 33°
-anzeigen()
 
-make_brick(3, 6, 3, 0, 'dslope') # dslope 3x4 ??°
-anzeigen()
-
-make_brick(2, 6, 2, 0, 'dslope') # dslope 3x4 33°
-anzeigen()
-
-make_brick(4, 6, 4, 0, 'dslope') # dslope 3x4 33°
-anzeigen()
-
+## 
 
 # make_brick(4, 4, 3, 2, 'slope')
 #   
@@ -146,22 +183,6 @@ anzeigen()
 # slope_4x6x3_top_1_cut_slope: Result has multiple solids: that is not currently supported
 
 # 
-# #################################################################################################################
 # 
-# # print("Ende:","Meine erstes FreeCAD Python script")
-# FreeCADGui.ActiveDocument.ActiveView.fitAll()
-# 
-# objs = doc.Objects
-# for obj in objs:
-#     a = obj.Name                                             # list the Name  of the object  (not modifiable)
-#     b = obj.Label                                            # list the Label of the object  (modifiable)
-#     try:
-#         c = obj.LabelText                                    # list the LabeText of the text (modifiable)
-#         App.Console.PrintMessage(str(a) +" "+ str(b) +" "+ str(c) + "\n") # Displays the Name the Label and the text
-#     except:
-#         App.Console.PrintMessage(str(a) +" "+ str(b) + "\n") # Displays the Name and the Label of the object
-# 
-# 
-# 
-# #################################################################################################################
-# 
+
+

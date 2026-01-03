@@ -1,6 +1,7 @@
 """
-slope_brick_mita.py -- Paul Cobbaut, 2023-05-18
--- Michael Talarczyk, 2025-11-02 2025-11-20 
+BrickSlopePlateMDialog.py 
+-- Paul Cobbaut, 2023-05-18
+-- Michael Talarczyk, 20252025-11-02 2026-01-03 auch mit spire
 The goal is to make Lego-compatible pieces for use in 3D printer
 The script generates .stl files in a directory.
 """
@@ -46,7 +47,7 @@ print(sys.version)
 if dialog.exec() == QDialog.Accepted:
     values = dialog.getValues()
     print("Die Werte:")
-    print(values)
+    print("Eingane:",values)
     match values[2]: # Höhe des Bricks
         case 1:
             values[4] = 'plate'
@@ -61,8 +62,11 @@ if dialog.exec() == QDialog.Accepted:
             values[3] = 0
             print("Fliese dann muss Höhe 1 sein und Studs 0")
             
-    print(values)        
-    make_brick(values[0],values[1],values[2],values[3],values[4])
+    print("Verwendet:",values)
+    if values[4] == 'spire':
+        make_spire(values[0],values[1],values[2],values[3],values[4]) # spire 
+    else:
+        make_brick(values[0],values[1],values[2],values[3],values[4]) # no spire
     anzeigen()
 else:
     print("Dialog wurde abgebrochen.")

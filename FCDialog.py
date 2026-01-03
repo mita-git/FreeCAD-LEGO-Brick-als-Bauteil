@@ -1,4 +1,11 @@
 # coding: UTF-8
+"""
+FCDialog.py -- 
+-- Michael Talarczyk, 2025-11-02 2026-01-03 auch mit spire
+The goal is to make Lego-compatible pieces for use in 3D printer
+The script generates .stl files in a directory.
+"""
+
 import sys
 import FreeCAD
 from FreeCAD import Console, Gui
@@ -49,7 +56,7 @@ class Dialog(QDialog):
         # Auswahlbox
         self.auswahl_label = QLabel("Auswahl:")
         self.auswahl_combobox = QComboBox()
-        self.auswahl_combobox.addItems(["slope", "brick", "plate", "tile", "dslope"])
+        self.auswahl_combobox.addItems([ "brick", "plate", "tile", "slope","dslope", "qslope", "spire"])
         layout.addWidget(self.auswahl_label)
         layout.addWidget(self.auswahl_combobox)
 
