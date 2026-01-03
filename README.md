@@ -46,7 +46,12 @@ FCDialog.py ist für eine Dialog eingabe.
 BrickSlopePlateMDialog.py kann in FreeCAD geöffnet und gestarte werden und verwendet eine Dalog eingabe.
 ----
 ## Beispiel Steine
-![2x6x3 Brick](2x6-brick.png)
+![2x6x3 Brick](2x6-brick.png =500x)
+![2x6x1 Platte](2x6-plate.png =500x)
+![2x6x3 Dachstein](2x6-slope.png =500x)
+![2x6x3 zweiseitiger längs Dachstein](2x6-dslope.png =500x)
+![2x6x3 zweiseitiger quer Dachstein](2x6-qslope.png =500x)
+![4x4x6 Dachsteinspitze](4x4x6-spire.png =500x)
 ----
 LEGO®
 
