@@ -833,6 +833,6 @@ def make_spire(studs_x, studs_y, plate_z, studs_t, type_of_brick):
 
     FreeCAD.ActiveDocument.recompute()
     
-    outer_box.Placement = FreeCAD.Placement(Vector((brick_width_mm * offset), 0, 0), FreeCAD.Rotation(0,0,0), Vector(0,0,0))
+    BoolGrossObj.Placement = FreeCAD.Placement(Vector((brick_width_mm * offset), 0, 0), FreeCAD.Rotation(0,0,0), Vector(0,0,0))
     offset += studs_x + 2
     print("ENDE: make_spire",brick_name)

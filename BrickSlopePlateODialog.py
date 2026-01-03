@@ -44,7 +44,6 @@ def anzeigen():
 ### make_brick(width_in_studs, length_in_studs, height_in_plates, studded_width)
 # make_brick(2, 2, 3, 1) # standard slope, bottom 2x2, top half 2x1 studs and half slope
 # make_brick(2, 4, 3, 1) # standard slope, bottom 2x4, top half 2x1 studs and half slope
-# make_brick(2, 6, 3, 1) # standard slope, bottom 2x6, top half 2x1 studs and half slope
 
 # make_brick(4, 6, 9, 1) # standard slope, bottom 2x6, top half 2x1 studs and half slope by mita
 
@@ -77,14 +76,11 @@ def anzeigen():
 ## make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4,
 ## anzeigen()
 ## 
-## make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
-## anzeigen()
-## 
-## make_brick(2, 6, 3, 2, 'brick') # standard brick, bottom 2x6, 
-## anzeigen()
-##
-## make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6,
-## anzeigen()
+make_brick(2, 6, 3, 2, 'brick') # standard brick, bottom 2x6, 
+anzeigen()
+
+make_brick(2, 6, 1, 3, 'plate') # standard plate, bottom 2x6,
+anzeigen()
 ##  
 ## make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4 45°
 ## anzeigen()
@@ -99,26 +95,29 @@ def anzeigen():
 ## anzeigen()
 # 
 # 
-## make_brick(2, 6, 1, 0, 'tile') # Fliese 3x4 33°
-## anzeigen()
-## 
-## make_brick(2, 6, 3, 1, 'slope') # slope 3x6 45°
-## anzeigen()
+make_brick(2, 6, 1, 0, 'tile') # Fliese 3x4 33°
+anzeigen()
+
+make_brick(2, 6, 3, 1, 'slope') # standard slope, bottom 2x6, top half 2x1 studs and half slope
+anzeigen()
+
+
 ## 
 ## make_brick(1, 6, 3, 1, 'brick') # brick 1x6 
 ## anzeigen()
 ## 
-## make_brick(2, 6, 3, 0, 'dslope') # dslope 3x4 45°
-## anzeigen()
-## 
+make_brick(2, 6, 3, 0, 'dslope') # dslope 3x4 45°
+anzeigen()
+
 ## make_brick(3, 6, 3, 1, 'slope') # slope 3x6 33°
 ## anzeigen()
 ## 
 ## make_brick(3, 6, 3, 0, 'dslope') # dslope 3x4 ??°
 ## anzeigen()
 ## 
-## make_brick(2, 6, 2, 0, 'dslope') # dslope 3x4 33°
-## anzeigen()
+make_brick(2, 6, 3, 0, 'qslope') # qslope 2x6 
+anzeigen()
+
 ## 
 ## make_brick(4, 6, 4, 0, 'dslope') # dslope 3x4 33°
 ## anzeigen()
@@ -134,7 +133,7 @@ def anzeigen():
 # make_spire(4, 4, 9, 0, 'spire') # spire 
 # anzeigen()
 
-make_spire(6, 4, 9, 0, 'spire') # spire 
+make_spire(2, 6, 3, 0, 'spire') # spire 
 anzeigen()
 
 ## make_brick(4, 4, 9, 2, 'slope') # slope 
