@@ -15,7 +15,7 @@ meine Version 16.11.2025 mit der ich das Python script entwickelt habe.
     Locale: German/Germany (de_DE)
     Stylesheet/Theme/QtStyle: FreeCAD Light.qss/FreeCAD Light/Fusion
 
-
+## Python programme
 Diese Python script basiert auf dem script slope_brick.py von Paul Cobbaut, 2023-05-18
 https://github.com/paulcobbaut/FreeCAD-Brick
 
@@ -25,17 +25,29 @@ Diese Script verwendet die funktionalitäten des PartDesigners.
 Mit dem Script können Dachsteine (slope), Platen (plate) und LEGO® Steine (brick) erzeugt werden.
 
     make_brick(2, 4, 3, 1, 'brick') # standard brick, bottom 2x4
-    make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4, top half 2x1 studs and half slope
+    make_brick(2, 4, 3, 1, 'slope') # standard slope, bottom 2x4
     make_brick(4, 6, 1, 3, 'plate') # standard plate, bottom 2x6
+    make_brick(4, 6, 1, 1, 'tile') # standard tile, bottom 2x6
+    make_brick(2, 6, 3, 0, 'dslope') # dslope 2x6 
+    make_brick(2, 6, 3, 0, 'qslope') # qslope 2x6 
+    make_spire(2, 6, 3, 0, 'spire') # spire 2x6
+    
 
 Es können aber auch Dachsteine erstellt werden die es bei LEGO® nicht gibt.
 make_brick(8, 2, 9, 2, 'slope')
 ----
 https://github.com/vectronic/freecad-legify-macros
 Hier habe ich mir den Eingabe Dialog abgeschaut das Programm läuft bei mir auf einige Fehler. Standard Bircks klappen da super.
-
 ----
-
+## Meine Anpassungen
+BrickSlopePlateODialog.py verwendet die Datei 
+BrickSlopePlateMitaLib.py ohne einen Dialog mit den oben angegeben Beispielen
+FCDialog.py ist für eine Dialog eingabe.
+BrickSlopePlateMDialog.py kann in FreeCAD geöffnet und gestarte werden und verwendet eine Dalog eingabe.
+----
+## Beispiel Steine
+![2x6x3 Brick](2x6-brick.png)
+----
 LEGO®
 
 Die LEGO® Group ist Eigentümer der Marke LEGO® und wir respektieren deren Rechte an geistigem Eigentum.
